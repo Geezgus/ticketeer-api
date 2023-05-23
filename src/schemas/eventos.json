@@ -2,7 +2,7 @@
   "validator": {
     "$jsonSchema": {
       "bsonType": "object",
-      "required": ["nome", "data", "cep", "endereco", "numero", "bairro", "cidade", "estado"],
+      "required": ["nome", "data", "cep", "endereco", "numero", "bairro", "cidade", "estado", "url_imagem"],
 
       "properties": {
         "nome": {
@@ -40,6 +40,10 @@
         "estado": {
           "bsonType": "string",
           "description": "Estado em que ocorrerá o evento - Obrigatório."
+        },
+        "url_imagem": {
+          "bsonType": "string",
+          "description": "Imagem do evento - Obrigatório."
         }
       }
     }
