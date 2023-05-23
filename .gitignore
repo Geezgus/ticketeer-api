@@ -1,0 +1,10 @@
+# Ignored files
+**/**.old
+**/**.temp
+**/**.tmp
+# .env
+
+# Ignored directories
+node_modules/
+**/temp
+**/tmp

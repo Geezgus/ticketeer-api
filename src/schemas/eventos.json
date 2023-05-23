@@ -1,0 +1,47 @@
+{
+  "validator": {
+    "$jsonSchema": {
+      "bsonType": "object",
+      "required": ["nome", "data", "cep", "endereco", "numero", "bairro", "cidade", "estado"],
+
+      "properties": {
+        "nome": {
+          "bsonType": "string",
+          "description": "Nome do evento - Obrigatório."
+        },
+        "data": {
+          "bsonType": "date",
+          "description": "Data do evento - Obrigatório."
+        },
+        "cep": {
+          "bsonType": "string",
+          "description": "CEP do local do evento - Obrigatório."
+        },
+        "endereco": {
+          "bsonType": "string",
+          "description": "Endereço do local do evento - Obrigatório."
+        },
+        "numero": {
+          "bsonType": "int",
+          "description": "Número do local do evento - Obrigatório."
+        },
+        "complemento": {
+          "bsonType": "string",
+          "description": "Complemento do endereço do evento - Opcional."
+        },
+        "bairro": {
+          "bsonType": "string",
+          "description": "Bairro do local do evento - Obrigatório."
+        },
+        "cidade": {
+          "bsonType": "string",
+          "description": "Cidade em que ocorerrá o evento - Obrigatório."
+        },
+        "estado": {
+          "bsonType": "string",
+          "description": "Estado em que ocorrerá o evento - Obrigatório."
+        }
+      }
+    }
+  }
+}
