@@ -1,5 +1,8 @@
 {
   "name": "ticketeer-api",
+  "engines": {
+    "node": ">=18"
+  },
   "type": "module",
   "version": "1.0.0",
   "description": "",
