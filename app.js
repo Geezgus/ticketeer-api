@@ -9,6 +9,9 @@ const port = process.env.PORT || 3333
 // Configure JSON response
 app.use(express.json())
 
+// Configure URL encoded
+app.use(express.urlencoded({ extended: true }))
+
 // Use routers
 app.use('/', require('./routes/root'))
 app.use('/auth/login', require('./routes/root/auth/login'))

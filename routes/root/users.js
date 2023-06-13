@@ -1,6 +1,8 @@
 const bcrypt = require('bcrypt')
 const { Router } = require('express')
+
 const User = require('../../models/User')
+const checkToken = require('../../middlewares/checkToken')
 
 const router = Router()
 
@@ -14,7 +16,7 @@ router.get('/', async (request, response) => {
   return response.status(200).json(users)
 })
 
-router.get('/:id', async (request, response) => {
+router.get('/:id', checkToken, async (request, response) => {
   const { id } = request.params
 
   const user = await User.findById(id, '-password_hash')

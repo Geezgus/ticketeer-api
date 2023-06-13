@@ -7,11 +7,11 @@ const User = require('../../../models/User')
 const router = Router()
 
 router.post('/', async (request, response) => {
-  const { name, email, password } = request.body
+  const { email, password } = request.body
 
   const user = await User.findOne({ email })
 
-  const allFieldsFilled = name && email && password
+  const allFieldsFilled = email && password
   if (!allFieldsFilled) {
     return response.sendStatus(422).json({ msg: 'All fields must be filled' })
   }
