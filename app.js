@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express')
+const cors = require('cors')
 
 const connect = require('./database/connect')
 
@@ -8,6 +9,9 @@ const port = process.env.PORT || 3333
 
 // Configure JSON response
 app.use(express.json())
+
+// Configure CORS
+app.use(cors())
 
 // Configure URL encoded
 app.use(express.urlencoded({ extended: true }))
