@@ -13,12 +13,12 @@ router.post('/', async (request, response) => {
 
   const allFieldsFilled = email && password
   if (!allFieldsFilled) {
-    return response.sendStatus(422).json({ msg: 'All fields must be filled' })
+    return response.status(422).json({ msg: 'All fields must be filled' })
   }
 
   const isPasswordCorrect = await bcrypt.compare(password, user.password_hash)
   if (!isPasswordCorrect) {
-    return response.sendStatus(422).json({ msg: 'Password is incorrect' })
+    return response.status(422).json({ msg: 'Password is incorrect' })
   }
 
   try {
