@@ -31,6 +31,7 @@ router.post('/', async (request, response) => {
       secret
     )
 
+    console.log(`User ${user.name} just logged in`)
     return response.status(200).json({ token })
   } catch (err) {
     console.error(err)
