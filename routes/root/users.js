@@ -6,7 +6,7 @@ const checkToken = require('../../middlewares/checkToken')
 
 const router = Router()
 
-router.get('/', async (request, response) => {
+router.get('/', checkToken, async (request, response) => {
   const users = await User.find({}, '-password_hash')
 
   if (!users) {
