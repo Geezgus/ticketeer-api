@@ -11,18 +11,18 @@ router.post('/', async (request, response) => {
 
   const allFieldsFilled = email && password
   if (!allFieldsFilled) {
-    return response.status(422).json({ msg: 'All fields must be filled' })
-  }
-
-  const isPasswordCorrect = await bcrypt.compare(password, user.password_hash)
-  if (!isPasswordCorrect) {
-    return response.status(422).json({ msg: 'Password is incorrect' })
+    return response.status(422).json({ msg: 'All fields must be filled', code: 100 })
   }
 
   const user = await User.findOne({ email })
 
   if (!user) {
-    return response.status(404).json({ msg: 'No user with found using this email.' })
+    return response.status(404).json({ msg: 'No user with found using this email.', code: 101 })
+  }
+
+  const isPasswordCorrect = await bcrypt.compare(password, user.password_hash)
+  if (!isPasswordCorrect) {
+    return response.status(422).json({ msg: 'Password is incorrect', code: 102 })
   }
 
   try {
