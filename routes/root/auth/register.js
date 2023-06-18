@@ -12,15 +12,15 @@ router.post('/', async (request, response) => {
   const passwordsMatch = password === password_confirm
 
   if (!allFieldsFilled) {
-    return response.status(422).json({ msg: 'All fields must be filled' })
+    return response.status(422).json({ msg: 'All fields must be filled', code: 200 })
   }
 
   if (!passwordsMatch) {
-    return response.status(422).json({ msg: "Passwords don't match" })
+    return response.status(422).json({ msg: "Passwords don't match", code: 201 })
   }
 
   if (await User.exists({ email })) {
-    return response.status(422).json({ msg: "There's already a user with this email" })
+    return response.status(422).json({ msg: "There's already a user with this email", code: 202 })
   }
 
   const salt = await bcrypt.genSalt()
